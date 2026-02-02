@@ -29,7 +29,7 @@ openLetter.addEventListener("click", () => {
   hintText.style.display = "none";
 
   // ปรับปุ่ม
-  readBtn.textContent = "กำลังเปิดจดหมาย...";
+  readBtn.textContent = "Opening the letter...";
 
   // letter2
   openLetter.classList.remove("letter-closed");
@@ -41,7 +41,7 @@ openLetter.addEventListener("click", () => {
     letterOpened = true;
     opening = false;
 
-    readBtn.textContent = "อ่านจดหมาย";
+    readBtn.textContent = "Read the letter";
   }, 600);
 });
 
