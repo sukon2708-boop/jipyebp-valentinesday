@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Valentine’s Coupons</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- คูปอง -->
+    <div class="container">
+  <div class="shell center">
+
+    <h4>Valentine’s Coupons</h4>
+    <p class="subtle" id="statusText"></p>
+
+    <!-- ปุ่มรับ -->
+    <button class="btn" id="receiveBtn">Claim Coupon</button>
+
+    <!-- คูปอง -->
+    <div class="coupon-grid hidden" id="couponGrid">
+      <img src="assets/coupon1.png" data-id="1" class="coupon-img">
+      <img src="assets/coupon2.png" data-id="2" class="coupon-img">
+      <img src="assets/coupon3.png" data-id="3" class="coupon-img">
+      <img src="assets/coupon4.png" data-id="4" class="coupon-img">
+      <img src="assets/coupon5.png" data-id="5" class="coupon-img">
+    </div>
+
+    <a class="btn secondary back-btn" href="menu.html">
+      Back to Menu
+    </a>
+
+  </div>
+</div>
+
+<!-- popup -->
+<div class="popup" id="popup">
+  <div class="popup-card">
+    <img id="popupImg">
+    <p id="popupText"></p>
+    <button class="btn" id="useBtn">Redeem This Coupon</button>
+    <button class="btn secondary" onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<script src="js/coupon.js"></script>
+
+
+</body>
+</html>

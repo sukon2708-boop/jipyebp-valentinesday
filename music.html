@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>A Song for You</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="shell center">
+      <h4>A Song for You </h4>
+     <h7>Taylor Swift - Daylight </h7>
+
+        <!-- แผ่นเสียง -->
+        <div class="vinyl-wrap">
+          <img src="assets/vinyl.png" class="vinyl" id="vinyl">
+        </div>
+
+        <!-- สถานะ -->
+
+<div class="progress-box">
+  <span id="currentTime">00:00</span>
+
+  <input
+    type="range"
+    id="progress"
+    value="0"
+    min="0"
+    step="1"
+  />
+
+  <span id="duration">00:00</span>
+</div>
+
+<div class="music-controls">
+      <!-- ปุ่ม -->
+<div class="btn-row">
+  <button class="btn" id="playBtn">▶ Play Music</button>
+  <a class="btn secondary" href="menu.html">Back</a>
+</div>
+
+<audio id="music">
+  <source src="assets/song.mp3" type="audio/mpeg">
+</audio>
+
+
+    </div>
+  </div>
+  </div>
+
+  <script src="js/music.js"></script>
+
+
+
+</body>
+</html>

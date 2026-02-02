@@ -1,0 +1,1357 @@
+/* ===============================
+   FONT : Fahkwang (Thai looped + cute)
+   =============================== */
+@import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;500;600;700&display=swap');
+
+/* ===============================
+   ROOT COLOR THEME (Cute Modern)
+   =============================== */
+:root{
+  --pink-1:#fff5f6;
+  --pink-2:#fde2e6;
+  --card:#c1121f;
+  --card-dark:#9b0d18;
+  --white:#ffffff;
+
+  --shadow: 0 22px 45px rgba(193,18,31,.30);
+  --shadow-soft: 0 12px 24px rgba(193,18,31,.22);
+  --radius: 28px;
+
+  --container-pad: 40px;
+  --shell-pad-x: 24px;
+  --shell-pad-y: 36px;
+}
+
+/* ===============================
+   GLOBAL RESET + FORCE FONT
+   =============================== */
+*{
+  box-sizing:border-box;
+  font-family: "Fahkwang", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+
+html, body{
+  height:100%;
+  margin:0;
+  font-family: "Fahkwang", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+
+/* กันรูป/สื่อ ล้นกรอบแบบครอบจักรวาล */
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===============================
+   BODY
+   =============================== */
+body{
+ background:
+  radial-gradient(900px 600px at 20% 10%, #f6b4b8 0%, transparent 60%),
+  radial-gradient(800px 600px at 80% 20%, #ee8f97 0%, transparent 55%),
+  linear-gradient(
+    135deg,
+    #fff2f3 0%,
+    #f3a3a9 45%,
+    #ffd6d9 100%
+  );
+
+
+  color:#4a1f24;
+  letter-spacing:.3px;
+  line-height:1.8;
+  -webkit-text-size-adjust:100%;
+}
+
+
+/* ===== Floating Heart Background (No JS) ===== */
+.bg-heart-layer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.bg-heart-layer span{
+  position: absolute;
+  bottom: -10%;
+  font-size: 22px;
+  opacity: .35;
+  animation: floatHeart linear infinite;
+}
+
+/* กระจายตำแหน่ง + ความเร็ว */
+.bg-heart-layer span:nth-child(1){ left:10%; animation-duration: 22s; }
+.bg-heart-layer span:nth-child(2){ left:25%; animation-duration: 18s; font-size:18px; }
+.bg-heart-layer span:nth-child(3){ left:45%; animation-duration: 26s; font-size:26px; }
+.bg-heart-layer span:nth-child(4){ left:65%; animation-duration: 20s; }
+.bg-heart-layer span:nth-child(5){ left:80%; animation-duration: 24s; font-size:20px; }
+.bg-heart-layer span:nth-child(6){ left:90%; animation-duration: 28s; font-size:24px; }
+
+@keyframes floatHeart{
+  from{ transform: translateY(0) scale(.9); }
+  to{ transform: translateY(-120vh) scale(1.4); }
+}
+
+/* ถ้ามีใช้ .bg-heart ด้วย JS */
+.bg-heart{
+  position:absolute;
+  font-size: 20px;
+  opacity: .35;
+  animation: bgFloat linear infinite;
+  filter: blur(.2px);
+}
+
+@keyframes bgFloat{
+  from{ transform: translateY(110vh) translateX(0) scale(.9); }
+  to{ transform: translateY(-120vh) translateX(-40px) scale(1.3); }
+}
+
+/* ===============================
+   LAYOUT
+   =============================== */
+.container{
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: var(--container-pad) 18px;
+}
+
+.shell{
+  width:min(980px, 100%);
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.65);
+  border-radius: 22px;
+  padding: var(--shell-pad-y) var(--shell-pad-x) calc(var(--shell-pad-y) + 8px);
+}
+
+.center{ text-align:center; }
+
+/* ===============================
+   TYPOGRAPHY
+   =============================== */
+h1{
+  font-size: 34px;
+  margin: 0 0 12px;
+  font-weight:700;
+  letter-spacing:.6px;
+  color:#b11226;
+}
+
+h2{
+  font-size: 24px;
+  margin: 0 0 12px;
+  font-weight:600;
+  color:#ffffff;
+}
+
+h3{
+  font-size: 24px;
+  margin: 0 0 12px;
+  font-weight:600;
+  color:#8d0f20;
+}
+
+h4{
+  font-size: 30px;
+  margin: 0 0 12px;
+  font-weight:600;
+  color:#8d0f20;
+}
+h5{
+  font-size: 24px;
+  margin: 0 0 12px;
+  font-weight:600;
+  color:#000000;
+}
+
+h6{
+  font-size: 34px;
+  margin: 0 0 12px;
+  font-weight:600;
+  color:#ffffff;
+}
+
+p{
+  margin:10px 0;
+  font-weight:400;
+  line-height:1.75;
+  color:#3a1f23;
+}
+
+.subtle{ opacity:.9; }
+.small{ font-size:13px; opacity:.85; }
+
+/* ===============================
+   BUTTONS
+   =============================== */
+.btn{
+  border:0;
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg,#e63946,#c1121f);
+  color:#ffffff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 14px 28px rgba(193,18,31,.35);
+  transition: all .2s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration: none;
+  
+}
+.btn,
+.btn:hover,
+.btn:focus{
+  text-decoration: none;
+}
+
+/* ===============================
+   FIX BUTTON SIZE ON MOBILE
+   =============================== */
+@media (max-width: 480px) {
+  .btn-row {
+    flex-direction: row;      /* ✅ ซ้าย–ขวา */
+    justify-content: center;
+    flex-wrap: wrap;          /* กันล้น */
+  }
+}
+
+
+
+  .btn,
+  .btn.secondary {
+    width: 100%;                  /* ไม่เกินการ์ด */
+    max-width: 260px;             /* กันใหญ่เกิน */
+    font-size: 14px;              /* ลดตัวหนังสือ */
+    padding: 10px 14px;           /* ลดความสูง */
+    border-radius: 18px;
+  }
+
+@media (max-width: 360px) {
+  .btn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+.btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+.btn:hover{
+  background: linear-gradient(135deg,#c1121f,#9b0d18);
+  box-shadow: 0 18px 36px rgba(193,18,31,.45);
+}
+
+.btn:active{
+  transform: scale(.97);
+}
+
+.btn.secondary{
+  background:#ffffff;
+  color:#c1121f;
+  border: 2px solid #e63946;
+  text-decoration: none;
+  box-shadow: 0 10px 22px rgba(193,18,31,.22);
+}
+
+/* กันกรณีเป็น <a> แล้วมีเส้นใต้ */
+.btn.secondary:hover,
+.btn.secondary:focus,
+.btn.secondary:active{
+  text-decoration: none;
+  color:#9b0d18;
+}
+
+/* ===============================
+   CARDS
+   =============================== */
+.card{
+  background: rgba(255,255,255,0.7);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.card::before{
+  background: linear-gradient(
+    120deg,
+    rgba(230,57,70,.35),
+    transparent 60%
+  );
+}
+
+.big-card{
+  width:min(720px,100%);
+  margin: 0 auto;
+  border-radius: 30px;
+  padding: 26px;
+  background: rgba(255,255,255,0.65);
+  box-shadow: var(--shadow);
+}
+
+.pink-panel{
+  width:min(520px, 100%);
+  margin: 0 auto;
+  background: linear-gradient(135deg, #c1121f, #e63946);
+  color:#ffffff;
+  border-radius: 30px;
+  padding: 24px 20px;
+  box-shadow: var(--shadow);
+}
+
+
+
+/* ===============================
+   BADGE
+   =============================== */
+.badge{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.92);
+  border:1px solid rgba(193,18,31,.35);
+  border-radius: 999px;
+  color:#9b0d18;
+  font-weight:700;
+}
+
+/* ===============================
+   MENU GRID (6 ITEMS)
+   =============================== */
+.menu-grid{
+  margin-top: 20px;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  width: min(520px, 100%);
+  margin-inline:auto;
+}
+
+.menu-item{
+  background: linear-gradient(135deg, #c1121f, #e63946);
+  border-radius: 26px;
+  padding: 24px 18px;
+  color:#ffffff;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height: 150px;
+  box-shadow: var(--shadow);
+  transition: all .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-item:hover{
+  transform: translateY(-4px);
+  filter: brightness(1.06);
+}
+
+.menu-item .icon{
+  width:48px;
+  height:48px;
+  margin-bottom: 12px;
+  object-fit:contain;
+  filter: drop-shadow(0 10px 14px rgba(193,18,31,.35));
+}
+
+.menu-item .label{
+  font-weight:600;
+  text-align:center;
+  line-height:1.3;
+  font-size: 16px;
+}
+
+/* ===============================
+   MENU WHITE STYLE
+   =============================== */
+.menu-item.white{
+  background: #ffffff;
+  border: 3px solid #e63946;
+  color: #9b0d18;
+  box-shadow: 0 12px 24px rgba(193,18,31,.25);
+}
+
+.menu-item.white .label{
+  color: #9b0d18;
+  font-weight:800;
+  margin-top: 10px;
+}
+
+.menu-item.white:hover{
+  background: #fff5f6;
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* icon */
+.menu-icon{
+  width:60px;
+  height:60px;
+  object-fit:contain;
+  margin-bottom: 6px;
+}
+
+/* ===============================
+   PASSCODE
+   =============================== */
+.pass-box{
+  flex: 1;
+  height: auto;
+}
+
+.digits{
+  display:flex;
+  justify-content:center;
+  gap: 12px;
+  margin: 16px 0 14px;
+  flex-wrap: wrap;
+}
+
+.digit{
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,.95);
+  border-radius: 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 20px;
+  font-weight:700;
+  color:#c1121f;
+}
+
+/* ✅ จัด keypad ให้เป็นตัวจริงที่เดียว (กันซ้ำ) */
+.keypad{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.key{
+  background: rgba(255,255,255,.95);
+  border: 1px solid rgba(193,18,31,.35);
+  border-radius: 16px;
+  padding: 16px 0;
+  font-size: 20px;
+  font-weight:700;
+  color:#c1121f;
+  cursor:pointer;
+  box-shadow: 0 12px 20px rgba(193,18,31,.18);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.key:active{ transform: translateY(1px); }
+
+/* ✅ ปุ่ม 0 ให้อยู่ “กลาง” แบบสวย ไม่ยืดแปลก */
+.key-zero{
+  grid-column: 2 / 3;     /* อยู่คอลัมน์กลาง */
+  justify-self: stretch;
+  width: 100%;
+  max-width: none;
+}
+
+/* ===============================
+   MODAL
+   =============================== */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.45);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+}
+
+.modal{
+  width: min(560px, 100%);
+  max-height: 85vh;          /* ⭐ สำคัญ */
+  overflow: hidden;          /* กันล้น */
+  background: rgba(255,255,255,.97);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+
+.modal h3{
+  margin: 6px 0 10px;
+  color:#c1121f;
+}
+.modal p{ white-space: pre-wrap; }
+
+.modal .row{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+/* ===============================
+   GALLERY
+   =============================== */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width:min(720px,100%);
+  margin: 18px auto 0;
+}
+
+.photo{
+  width:100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  cursor:pointer;
+}
+
+/* ===============================
+   QUIZ
+   =============================== */
+.qbox{
+  width:min(720px,100%);
+  margin: 0 auto;
+}
+
+.choice{
+  width:100%;
+  text-align:left;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border:1px solid rgba(193,18,31,.35);
+  background: rgba(255,255,255,.95);
+  cursor:pointer;
+  font-weight:600;
+  margin: 8px 0;
+}
+
+.choice.selected{
+  outline: 2px solid rgba(193,18,31,.65);
+}
+.hr{
+  height:1px;
+  background: rgba(0,0,0,.08);
+  margin: 16px 0;
+}
+
+/* ===============================
+   JIGSAW
+   =============================== */
+.canvas-wrap{
+  width: 100%;
+  max-width: 420px;          /* จำกัดความกว้างใน card */
+  margin: 0 auto;
+}
+
+.canvas-wrap canvas{
+  width: 100%;               /* ย่ออัตโนมัติ */
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+
+/* ===============================
+   WHEEL
+   =============================== */
+.wheel-wrap{
+  width: 100%;
+  max-width: 420px;          /* จำกัดให้พอดีการ์ด */
+  margin: 0 auto;
+}
+
+.wheel-wrap canvas{
+  width: 100%;               /* ย่อ canvas ตามการ์ด */
+  height: auto;
+  display: block;
+  border-radius: 50%;        /* วงล้อกลมเนียน */
+}
+
+
+
+/* ===============================
+   PASS PAGE LAYOUT
+   =============================== */
+.pass-layout{
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.pass-image{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,0.35);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.pass-image img{
+  animation: float 3s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 22px;
+}
+
+@keyframes float{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+}
+
+/* ===== IMAGE CENTER ===== */
+.center-img{
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 18px auto;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+/* ===== TIME GRID ===== */
+.time-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+  margin-bottom: 24px; /* 👈 เพิ่มบรรทัดนี้ */
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* กล่องเวลา */
+.time-box{
+  background: rgba(255,255,255,.88);
+  border-radius: 18px;
+  padding: 12px 6px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ตัวเลข */
+.time-value{
+  font-size: 22px;       /* 🔽 ลดขนาด */
+  font-weight: 800;
+  color: #c1121f;
+  line-height: 1.2;
+}
+
+/* label */
+.time-label{
+  font-size: 13px;
+  opacity: .75;
+  margin-top: 2px;
+}
+
+
+/* ===== ซองจดหมาย ===== */
+.letter-img{
+  width:330px;              /* 🔥 รูปใหญ่ขึ้น */
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:14px auto 20px;
+  cursor:pointer;           /* 🔥 บอกว่ากดได้ */
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+  position:relative;
+  z-index:2;                /* 🔥 ไม่โดนบัง */
+  transition:transform .2s ease;
+  
+}
+
+.letter-img:active{
+  transform:scale(0.96);
+}
+
+
+/* Vinyl */
+.vinyl-wrap{
+  width:350px;
+  height:350px;
+  margin: 0 auto 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+@media (max-width: 720px){
+  .music-controls{
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+
+.music-controls{
+  display:flex;
+  justify-content:center;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ===============================
+   RESPONSIVE (Tablet)
+   =============================== */
+@media (max-width: 900px){
+  :root{
+    --container-pad: 32px;
+    --shell-pad-x: 20px;
+    --shell-pad-y: 28px;
+  }
+
+  .big-card{ padding: 22px; }
+  .menu-grid{ width: min(560px, 100%); }
+}
+
+/* ===============================
+   RESPONSIVE (Phone)
+   =============================== */
+@media (max-width: 720px){
+  :root{
+    --container-pad: 20px;
+    --shell-pad-x: 16px;
+    --shell-pad-y: 22px;
+  }
+
+  h1{ font-size: 26px; }
+  h2{ font-size: 20px; }
+
+  /* ✅ flex บนมือถือให้เรียงลง */
+  .pass-layout{
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pass-image{
+    order: -1;
+    padding: 12px;
+    border-radius: 24px;
+  }
+
+  /* กันรูปสูงเกินจอ */
+  .pass-image img{
+    height: auto;
+    max-height: 42vh;
+    object-fit: contain;
+  }
+
+  .big-card{
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .pink-panel{
+    border-radius: 24px;
+    padding: 18px 16px;
+  }
+
+  /* ✅ ปุ่มเรียงสวยบนมือถือ */
+  .modal .row,
+  .music-controls{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+.modal .btn{
+  width: 100%;
+  max-width: 420px;
+}
+
+
+  /* เมนูไม่แน่น */
+  .menu-grid{
+    width: 100%;
+    max-width: 520px;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-item{
+    min-height: 128px;
+    padding: 16px 12px;
+  }
+
+  .menu-icon{ width: 52px; height: 52px; }
+
+  /* keypad / digits */
+  .digits{ gap: 10px; }
+  .digit{ width: 44px; height: 44px; font-size: 18px; }
+  .key{ padding: 14px 0; font-size: 18px; }
+
+  /* time */
+  .time-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .time-value{ font-size: 22px; }
+
+  /* gallery */
+  .gallery{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* vinyl */
+  .vinyl-wrap{ width: 210px; height: 210px; }
+
+  /* ปรับรูปเค้ก/รูปสื่อไม่ให้ใหญ่เกินการ์ด */
+  .cake-img{
+    width: min(260px, 72vw);
+    max-width: 280px;
+  }
+
+  .center-img{
+    max-width: 100%;
+    max-height: 46vh;
+    object-fit: contain;
+  }
+
+  .letter-img{
+    width: min(320px, 82vw);
+    max-width: 340px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE (Small Phone)
+   =============================== */
+@media (max-width: 420px){
+  h1{ font-size: 23px; }
+  h2{ font-size: 18px; }
+
+  .shell{ border-radius: 18px; }
+
+  .cake-stage{
+    width: min(300px, 86vw);
+  }
+
+  .gallery{
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .menu-item{
+    min-height: 112px;
+  }
+
+  .vinyl-wrap{ width: 190px; height: 190px; }
+}
+
+/* ===============================
+   Anniversary FX Layer
+   =============================== */
+#fxLayer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50;
+}
+
+/* อนิเมชันลอยขึ้น */
+.particle{
+  position: absolute;
+  bottom: -12vh;
+  will-change: transform, opacity;
+  animation: floatUp ease-in forwards;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,.12));
+}
+
+/* ดอกไม้ลอยนุ่มกว่า */
+.particle.flower{ opacity: .95; }
+
+/* หัวใจเด่นขึ้นนิดนึง */
+.particle.heart{ opacity: 1; }
+
+@keyframes floatUp{
+  from{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to{
+    transform: translateY(-125vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* ===============================
+   Media Card + Gift
+   =============================== */
+.media-card{
+  width: min(520px, 92vw);
+  background: #fff;
+  border-radius: 22px;
+  padding: 18px 18px 8px;
+  box-shadow: 0 16px 32px rgba(0,0,0,.10);
+  margin: 10px auto 14px;
+}
+
+.gift-stage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.gift-img{
+  width: 290px;        /* ปรับได้ 180–260 */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 12px;
+  object-fit: contain;
+}
+
+
+.gift-stage.opening .gift-img{
+  animation: giftPop .55s ease;
+}
+
+
+@keyframes giftPop{
+  0%   { transform: scale(1) rotate(0deg); }
+  25%  { transform: scale(1.06) rotate(-4deg); }
+  55%  { transform: scale(1.12) rotate(4deg); }
+  100% { transform: scale(1.00) rotate(0deg); }
+}
+
+.gift-stage.opened .gift-img{
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,.18));
+}
+
+/* title หายแบบนุ่ม */
+.fade-out{
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+/* ✅ มือถือ: กันรูปของขวัญสูงเกินจอ + ไม่ล้นการ์ด */
+@media (max-width: 720px){
+  .modal .row{
+    flex-direction: column; /* modal ยังบน–ล่าง */
+  }
+
+  .music-controls{
+    flex-direction: row;    /* 🎯 เพลงซ้าย–ขวา */
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .gift-stage{ min-height: 200px; }
+
+  .gift-img{
+    width: 100%;
+    max-width: 320px;
+    max-height: 42vh;
+  }
+}
+
+/* ===============================
+   Spin (if used for vinyl etc.)
+   =============================== */
+.spin{
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
+
+
+.btn-row{
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;  /* ถ้าไม่พอ ค่อยขึ้นบรรทัด */
+}
+
+
+/* ขนาดปุ่มใหม่ */
+.btn-row .btn{
+  flex: 0 0 auto;            /* ไม่ยืดเต็ม */
+  min-width: 120px;          /* ความกว้างเท่ากัน */
+  padding: 8px 14px;         /* ลดความสูง */
+  font-size: 14px;           /* ขนาดตัวอักษร */
+  text-align: center;
+}
+
+
+/*======== เพิ่ม 2 หน้า =============*/
+
+.btn-row.column{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+/* ========== คูปอง ==============*/
+/* เอฟเฟคโชว์หัวข้อ */
+.fade-pop{
+  animation: pop 0.8s ease;
+}
+@keyframes pop{
+  0%{transform:scale(0.7);opacity:0}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* กริดคูปอง */
+/* ===== COUPON LAYOUT ===== */
+.coupon-grid{
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 4px;
+  margin: 20px auto 0;     /* ⭐ จัดกล่องให้อยู่กลาง */
+  width: 100%;
+  max-width: 360px;
+  justify-items: center;   /* ⭐ จัดรูปตรงกลาง */
+}
+
+
+/* รูปคูปอง */
+.coupon-img{
+  width: 100%;
+  max-width: 500px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.coupon-img:hover{
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+}
+
+/* ซ่อน */
+.hidden{
+  display: none;
+}
+
+
+
+/* Popup */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99;
+}
+.popup.active{
+  display:flex;
+}
+.popup-card{
+  background:#fff;
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  animation:zoom 0.4s ease;
+}
+.popup-card img{
+  max-width:260px;
+  margin-bottom:16px;
+}
+@keyframes zoom{
+  from{transform:scale(0.6)}
+  to{transform:scale(1)}
+}
+
+.hidden{ display:none }
+
+/* ปุ่มเด้ง */
+.pulse{
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
+
+.coupon-img.used{
+  filter: grayscale(1) opacity(0.4);
+  pointer-events: none;
+}
+
+.popup.active{
+  display:flex;
+}
+
+#heartCanvas{
+  position: fixed;
+  inset: 0;
+  z-index: 10;          /* สูงกว่า content */
+  pointer-events: none; /* คลิกทะลุได้ */
+}
+
+/* ===================== ปุ่มใหม่ =================*/ /* ========================= Gradient Red Button ========================= */ 
+.btn-gradient-red{ display: inline-block; 
+  padding: 12px 28px; border-radius: 999px; 
+  /* ทรงเม็ดยาเหมือนเดิม */ font-weight: 500; 
+  text-decoration: none; color: #fff; background: linear-gradient( 135deg, #ff4d6d, #ff758f, #ff9a9e ); box-shadow: 0 8px 20px rgba(255,77,109,0.35); transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.4s ease; position: relative; overflow: hidden; } /* ✨ เงาวิบวับไหลผ่าน */ .btn-gradient-red::before{ content: ""; position: absolute; top: 0; left: -120%; width: 120%; height: 100%; background: linear-gradient( 120deg, transparent, rgba(255,255,255,0.45), transparent ); transition: left 0.6s ease; } .btn-gradient-red:hover::before{ left: 120%; } .btn-gradient-red:hover{ transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 28px rgba(255,77,109,0.5); } .btn-gradient-red:active{ transform: scale(0.97);}
+
+  /* ===============================
+   PASS CARD (Dark Red)
+   =============================== */
+.pass-card-red{
+  width: min(520px, 100%);
+  margin: 0 auto;
+  background: #850a0a;            /* สีใหม่ */
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 24px 20px;
+  box-shadow: 0 22px 45px rgba(133,10,10,.45);
+}
+
+/* ตัวอักษรด้านใน */
+.pass-card-red h2{
+  color: #ffffff;
+}
+
+.pass-card-red .note{
+  font-size: 14px;
+  opacity: .9;
+  margin-bottom: 10px;
+}
+
+/* digit */
+.pass-card-red .digit{
+  background: rgba(255,255,255,.95);
+  color: #850a0a;
+}
+
+/* keypad */
+.pass-card-red .key{
+  color: #850a0a;
+}
+
+
+/*===== รูป ==========*/
+.cake-img{
+  width: 290px;      /* ปรับได้ เช่น 150–220 */
+  max-width: 100%;
+  height: auto;
+  margin: 12px auto;
+  display: block;
+}
+
+
+@media (max-width: 480px){
+  .gift-img{
+    width: 180px;
+  }
+}
+
+
+.letter-img1{
+  width: 350px;           /* 🔥 ใหญ่ขึ้นชัด */
+  max-width: 100%;
+  margin: 2px auto 11px;  /* 🔥 ดึงขึ้นใกล้ข้อความ */
+}
+
+
+.imgxxx{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 18px auto;
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+/* ===============================
+   LOVE GAME CARD (CLEAN VERSION)
+   =============================== */
+
+/* การ์ดเกม */
+.love-card{
+  margin: 0 auto;
+  max-width: 420px;
+  width: 100%;
+
+  background: #c4161c; /* แดงชัด */
+  color: #ffffff;
+
+  padding: 36px 28px;
+  border-radius: 26px;
+  text-align: center;
+
+  /* เงาเรียบ ๆ */
+  box-shadow: 0 18px 40px rgba(196,22,28,.35);
+}
+
+/* คำถาม */
+.love-card h4{
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* ข้อความเล็ก */
+.love-card .subtle{
+  color: rgba(255,255,255,.8);
+  font-size: .95rem;
+  margin-bottom: 22px;
+}
+
+/* กล่องปุ่ม */
+.love-card .btn-row.column{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ปุ่มตัวเลือก */
+.love-card button,
+.love-card .btn{
+  background: #ffffff;
+  color: #c4161c;
+
+  border: none;
+  border-radius: 18px;
+  padding: 14px 16px;
+
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: background .2s ease, transform .15s ease;
+}
+
+/* hover เรียบ ๆ */
+.love-card button:hover,
+.love-card .btn:hover{
+  background: #ffe5e7;
+}
+
+/* ตอนกด */
+.love-card button:active{
+  transform: scale(0.98);
+}
+
+/* มือถือ */
+@media (max-width:480px){
+  .love-card{
+    padding: 28px 22px;
+  }
+
+  .love-card h4{
+    font-size: 1.2rem;
+  }
+}
+
+
+/* ===============================
+   UNIVERSAL PAGE WIDTH
+   =============================== */
+
+/* กล่องหลักทุกหน้า */
+.shell{
+  max-width: 860px;     /* 👈 มาตรฐานเดียวทั้งเว็บ */
+  margin-inline: auto;
+}
+
+/* ระยะหายใจบนมือถือ */
+@media (max-width: 720px){
+  .shell{
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+/* ===============================
+   CARD SIZE STANDARD
+   =============================== */
+
+/* การ์ดหลักทุกประเภท */
+.big-card,
+.pink-panel,
+.love-card,
+.pass-card-red{
+  width: 100%;
+  max-width: 520px;   /* 👈 ขนาดกำลังสวย */
+  margin-inline: auto;
+}
+
+/* มือถือ */
+@media (max-width: 480px){
+  .big-card,
+  .pink-panel,
+  .love-card,
+  .pass-card-red{
+    max-width: 100%;
+  }
+}
+/* ===============================
+   VERTICAL RHYTHM
+   =============================== */
+
+h1{
+  margin-bottom: 10px;
+}
+
+h1 + .subtle{
+  margin-bottom: 22px;
+}
+
+.big-card,
+.pink-panel,
+.love-card,
+.pass-card-red{
+  margin-top: 6px;
+}
+
+.btn-row,
+.music-controls{
+  margin-top: 18px;
+}
+/* ===============================
+   MOBILE POLISH
+   =============================== */
+@media (max-width: 480px){
+
+  p{
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .btn,
+  .love-card button{
+    font-size: 15px;
+    padding: 12px 16px;
+  }
+
+  .btn-row.column{
+    gap: 12px;
+  }
+}

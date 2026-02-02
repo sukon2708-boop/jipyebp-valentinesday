@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<title>Floating Hearts</title>
+
+<style>
+  html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+  }
+
+   canvas{
+    position:fixed;
+    inset:0;
+    z-index:0;           /* หลังสุด */
+    pointer-events:none; /* คลิกผ่าน */
+  }
+
+  .text{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    font-size:24px;
+    text-align:center;
+    z-index:2;
+  }
+</style>
+</head>
+
+<body>
+
+<canvas id="c"></canvas>
+
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+class Heart{
+  constructor(){
+    this.reset();
+  }
+
+  reset(){
+    this.x = Math.random() * canvas.width;
+    this.y = canvas.height + Math.random()*200;
+    this.size = 8 + Math.random()*16;
+    this.speed = 0.5 + Math.random()*1.5;
+    this.alpha = 0.5 + Math.random()*0.5;
+  }
+
+  draw(){
+    ctx.save();
+    ctx.translate(this.x,this.y);
+    ctx.scale(this.size/20,this.size/20);
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.bezierCurveTo(-10,-10,-25,5,0,25);
+    ctx.bezierCurveTo(25,5,10,-10,0,0);
+    ctx.fillStyle = `rgba(220,20,60,${this.alpha})`; // crimson red
+
+    ctx.fill();
+    ctx.restore();
+  }
+
+  update(){
+    this.y -= this.speed;
+    this.x += Math.sin(this.y/40)*0.3;
+    if(this.y < -50) this.reset();
+    this.draw();
+  }
+}
+
+const hearts = [];
+for(let i=0;i<120;i++) hearts.push(new Heart());
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  hearts.forEach(h=>h.update());
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
